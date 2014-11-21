@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    
+  
+  
+  <bean id="directionService" class="org.directionsApi.services.DirectionAPIServiceImpl" scope="singleton">
+  	<property name="apiMessageSource" ref="apiMessageSource"/>
+  	<property name="browserMessageSource" ref="browserMessageSource"/>
+  </bean>
+  
+  
+  
+  <bean id="apiMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+  <property name="basenames">
+  	<list>
+  		<value>properties/google_api</value>
+  	</list>
+  
+  </property>
+  </bean>
+  
+   <bean id="browserMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+  <property name="basenames">
+  	<list>
+  		<value>properties/httpRequest</value>
+  	</list>
+  
+  </property>
+  </bean>
+  
+  </beans>
